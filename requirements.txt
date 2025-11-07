@@ -25,35 +25,39 @@ jiter==0.11.1
 jsonpatch==1.33
 jsonpointer==3.0.0
 jsonschema==4.25.1
-# jsonschema-specifications 핀 제거 (하위 의존성은 상위가 해결)
-# langchain 계열: 0.3.x로 통일, core/ classic 핀 제거
+
+# LangChain 0.3 계열로 정리 (core/ classic 핀 제거)
 langchain==0.3.7
 langchain-community==0.3.7
 langchain-openai==0.3.19
 langchain-pinecone==0.2.13
 langchain-text-splitters==0.3.8
-# langchain-core는 상위 패키지가 의존성으로 해결하므로 제거
-# langchain-classic 제거 (충돌 원인)
+
 langgraph==1.0.2
 langgraph-checkpoint==3.0.1
 langgraph-prebuilt==1.0.2
 langgraph-sdk==0.2.9
 langsmith==0.1.147
+
 MarkupSafe==3.0.3
 marshmallow==3.26.1
 multidict==6.7.0
 mypy_extensions==1.1.0
 narwhals==2.10.2
-# numpy는 Py3.12 + pandas 2.3.3과 호환 위해 2.x로 상향
-numpy>=2.0,<3
+
+# ✅ 핵심 수정: numpy를 1.26.x로 고정 (langchain 0.3.7 요구사항 충족)
+numpy==1.26.4
+
 openai==1.109.1
 orjson==3.11.4
 ormsgpack==1.12.0
 packaging==24.2
 pandas==2.3.3
 pillow==12.0.0
-# pinecone 단일화: pinecone-client만 사용 (pinecone / plugin-* 제거)
+
+# Pinecone는 client만 사용
 pinecone-client==6.0.0
+
 propcache==0.4.1
 protobuf==6.33.0
 pyarrow==21.0.0
@@ -65,13 +69,9 @@ python-dateutil==2.9.0.post0
 python-dotenv==1.2.1
 pytz==2025.2
 PyYAML==6.0.3
-# 하위 의존성 과도한 핀 제거 권장 (필요시 자동 해결)
-# referencing==0.37.0
-# regex==2025.11.3
+
 requests==2.32.5
 requests-toolbelt==1.0.0
-# rpds-py 핀 제거 권장
-# rpds-py==0.28.0
 simsimd==6.5.3
 six==1.17.0
 smmap==5.0.2
@@ -84,7 +84,6 @@ toml==0.10.2
 tornado==6.5.2
 tqdm==4.67.1
 typing-inspect==0.9.0
-# typing-inspection 제거 (중복/혼동 방지)
 typing_extensions==4.15.0
 tzdata==2025.2
 urllib3==2.5.0
